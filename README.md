@@ -18,6 +18,14 @@ Verbatim voice transcription CLI using Whisper. Records from your microphone and
 - **Apple Silicon optimized** - Uses MLX backend on M1/M2/M3 Macs for 10x faster inference
 - **Multiple output options** - Print to terminal, save to file, or copy to clipboard
 
+## Privacy
+
+All audio processing happens **locally on your machine**. No data is ever sent to external servers.
+
+- Audio is recorded to memory only (never written to disk unless you use `-o`)
+- Whisper models run entirely offline after initial download
+- No telemetry, analytics, or network requests
+
 ## Installation
 
 ```bash
@@ -104,9 +112,15 @@ uv run --extra apple vv
 
 ## Troubleshooting
 
+### macOS: "Could not access microphone"
+
+Grant microphone permission to your terminal app:
+1. Open System Preferences > Security & Privacy > Privacy > Microphone
+2. Add and enable your terminal (Terminal.app, iTerm2, etc.)
+
 ### Linux: `PortAudio library not found`
 
-On Linux, you need to install PortAudio:
+Install PortAudio:
 
 ```bash
 # Ubuntu/Debian
@@ -117,6 +131,35 @@ sudo dnf install portaudio
 
 # Arch
 sudo pacman -S portaudio
+```
+
+### First run is slow
+
+The first run downloads the Whisper model (~140MB for base). Subsequent runs are instant.
+
+### No audio devices found
+
+```bash
+# List available devices
+vv --list-devices
+
+# If empty, check that your microphone is connected and recognized by the OS
+```
+
+### Transcription quality is poor
+
+- Try a larger model: `vv -m large`
+- Speak clearly and reduce background noise
+- Force language if auto-detect fails: `vv -l en`
+
+### MLX backend not loading on Apple Silicon
+
+Ensure you installed with Apple extras:
+
+```bash
+uv tool install 'vv[apple]'
+# or
+pip install 'vv[apple]'
 ```
 
 ## License
