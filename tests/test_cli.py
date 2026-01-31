@@ -1,7 +1,5 @@
 """Tests for CLI functions."""
 
-import pytest
-
 from vv import __version__
 from vv.backends import TranscriptionResult
 from vv.cli import create_parser, format_output, format_timestamp

@@ -33,5 +33,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Install PortAudio (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libportaudio2
+
       - name: Run tests
         run: uv run --extra dev pytest
