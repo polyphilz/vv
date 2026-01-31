@@ -5,6 +5,10 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+<p align="center">
+  <img src="assets/demo.gif" alt="vv demo" width="600">
+</p>
+
 Verbatim voice transcription CLI using Whisper. Records from your microphone and transcribes speech to text locally.
 
 ## Features
