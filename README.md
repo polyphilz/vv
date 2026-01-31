@@ -1,7 +1,6 @@
 # vv (VibeVox)
 
 [![CI](https://github.com/polyphilz/vv/actions/workflows/ci.yml/badge.svg)](https://github.com/polyphilz/vv/actions/workflows/ci.yml)
-[![PyPI](https://img.shields.io/pypi/v/vv.svg)](https://pypi.org/project/vv/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -29,14 +28,20 @@ All audio processing happens **locally on your machine**. No data is ever sent t
 ## Installation
 
 ```bash
-# Using uv (recommended)
-uv tool install vv
+curl -fsSL https://raw.githubusercontent.com/polyphilz/vv/main/install.sh | bash
+```
 
-# Or with pip
-pip install vv
+Or install manually:
+
+```bash
+# Using uv (recommended)
+uv tool install git+https://github.com/polyphilz/vv
+
+# Using pipx
+pipx install git+https://github.com/polyphilz/vv
 
 # On Apple Silicon, install with MLX support for best performance
-uv tool install 'vv[apple]'
+uv tool install 'vv[apple] @ git+https://github.com/polyphilz/vv'
 ```
 
 ## Usage
@@ -157,9 +162,7 @@ vv --list-devices
 Ensure you installed with Apple extras:
 
 ```bash
-uv tool install 'vv[apple]'
-# or
-pip install 'vv[apple]'
+uv tool install 'vv[apple] @ git+https://github.com/polyphilz/vv'
 ```
 
 ## License
