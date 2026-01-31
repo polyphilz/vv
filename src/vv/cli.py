@@ -7,7 +7,7 @@ import sys
 
 from vv import __version__
 from vv.audio import list_devices, record_audio
-from vv.backends import get_backend
+from vv.backends import TranscriptionResult, get_backend
 
 
 def format_timestamp(seconds: float) -> str:
@@ -18,7 +18,7 @@ def format_timestamp(seconds: float) -> str:
 
 
 def format_output(
-    result,
+    result: TranscriptionResult,
     duration: float,
     show_timestamps: bool = False,
     quiet: bool = False,
