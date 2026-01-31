@@ -45,9 +45,9 @@ dev = [
 vv = "vv.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/rohan/vv"
-Repository = "https://github.com/rohan/vv"
-Issues = "https://github.com/rohan/vv/issues"
+Homepage = "https://github.com/polyphilz/vv"
+Repository = "https://github.com/polyphilz/vv"
+Issues = "https://github.com/polyphilz/vv/issues"
 
 [build-system]
 requires = ["hatchling"]
