@@ -102,6 +102,23 @@ uv run --extra apple vv
 - Working microphone
 - For Apple Silicon: macOS with M1/M2/M3 chip (optional, for MLX acceleration)
 
+## Troubleshooting
+
+### Linux: `PortAudio library not found`
+
+On Linux, you need to install PortAudio:
+
+```bash
+# Ubuntu/Debian
+sudo apt install libportaudio2
+
+# Fedora
+sudo dnf install portaudio
+
+# Arch
+sudo pacman -S portaudio
+```
+
 ## License
 
 MIT
