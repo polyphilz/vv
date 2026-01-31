@@ -2,6 +2,7 @@
 set -e
 
 REPO="polyphilz/vv"
+TARBALL="https://github.com/${REPO}/archive/refs/heads/main.tar.gz"
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
@@ -34,11 +35,11 @@ check_python() {
 
 check_python
 
-# Determine install method and package spec
+# Determine package spec based on platform
 if [[ "$APPLE_SILICON" == true ]]; then
-    PKG_SPEC="vv[apple] @ git+https://github.com/${REPO}"
+    PKG_SPEC="vv[apple] @ ${TARBALL}"
 else
-    PKG_SPEC="git+https://github.com/${REPO}"
+    PKG_SPEC="${TARBALL}"
 fi
 
 # Install using uv, pipx, or pip (in order of preference)
