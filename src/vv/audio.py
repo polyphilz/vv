@@ -65,7 +65,10 @@ def record_audio(
         )
     except sd.PortAudioError as e:
         print(f"Error: Could not access microphone: {e}", file=sys.stderr)
-        print("On macOS, check System Preferences > Security & Privacy > Microphone", file=sys.stderr)
+        print(
+            "On macOS, check System Preferences > Security & Privacy > Microphone",
+            file=sys.stderr,
+        )
         sys.exit(3)
 
     if not quiet:
