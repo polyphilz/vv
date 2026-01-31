@@ -1,0 +1,74 @@
+[project]
+name = "vv"
+version = "0.1.0"
+description = "Verbatim voice transcription CLI using Whisper"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Rohan" }
+]
+keywords = ["speech-to-text", "whisper", "transcription", "voice", "cli", "vv"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+
+dependencies = [
+    "faster-whisper>=1.0.0",
+    "sounddevice>=0.4.0",
+    "numpy>=1.20.0",
+    "pyperclip>=1.8.0",
+]
+
+[project.optional-dependencies]
+apple = [
+    "mlx-whisper>=0.4.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+vv = "vv.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/rohan/vv"
+Repository = "https://github.com/rohan/vv"
+Issues = "https://github.com/rohan/vv/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vv"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=vv --cov-report=term-missing"
